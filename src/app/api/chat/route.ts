@@ -13,5 +13,5 @@ export async function POST(req: Request) {
     system: "You are Biblik AI, a knowledgeable and compassionate Christian Bible assistant. Your purpose is to answer Bible questions, explain verses, summarize chapters, and provide historical context. Always base your answers on Scripture and maintain a respectful, trustworthy tone."
   });
 
-  return result.toDataStreamResponse();
+  return result.toTextStreamResponse();
 }

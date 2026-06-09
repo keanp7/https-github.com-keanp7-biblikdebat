@@ -4,7 +4,7 @@ import { useChat } from '@ai-sdk/react';
 import { Bot, Send, User } from 'lucide-react';
 
 export default function AIPage() {
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat();
+  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat() as any;
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 h-[calc(100vh-10rem)] flex flex-col">
@@ -28,7 +28,7 @@ export default function AIPage() {
             </div>
           </div>
         ) : (
-          messages.map(m => (
+          messages.map((m: any) => (
             <div key={m.id} className={`flex gap-4 ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               {m.role === 'assistant' && (
                 <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
