@@ -1,0 +1,51 @@
+import { createClient } from '@/lib/supabase/server';
+import { Users, MessageSquare, Activity, AlertCircle } from 'lucide-react';
+
+export default async function AdminDashboard() {
+  const supabase = await createClient();
+  
+  // Example data fetch (safely falling back to 0 if tables are empty/missing)
+  const { count: usersCount } = await supabase.from('profiles').select('*', { count: 'exact', head: true });
+  const { count: groupsCount } = await supabase.from('groups').select('*', { count: 'exact', head: true });
+
+  const stats = [
+    { title: 'Total Users', value: usersCount || 0, icon: Users, color: 'bg-blue-500' },
+    { title: 'Active Groups', value: groupsCount || 0, icon: MessageSquare, color: 'bg-green-500' },
+    { title: 'Server Status', value: 'Healthy', icon: Activity, color: 'bg-emerald-500' },
+    { title: 'Reports', value: '0', icon: AlertCircle, color: 'bg-red-500' },
+  ];
+
+  return (
+    <div className="p-8">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-gray-900">Dashboard Overview</h1>
+        <p className="text-gray-600 mt-2">Welcome to the Biblik Debat administration panel.</p>
+      </div>
+
+      {/* Stats Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        {stats.map((stat, idx) => (
+          <div key={idx} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex items-center gap-4">
+            <div className={`p-4 rounded-lg text-white ${stat.color}`}>
+              <stat.icon className="h-6 w-6" />
+            </div>
+            <div>
+              <p className="text-sm font-medium text-gray-500">{stat.title}</p>
+              <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Recent Activity Placeholder */}
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="px-6 py-5 border-b border-gray-100">
+          <h3 className="text-lg font-medium text-gray-900">Recent Platform Activity</h3>
+        </div>
+        <div className="p-6">
+          <p className="text-gray-500 text-center py-8">Activity logging will appear here...</p>
+        </div>
+      </div>
+    </div>
+  );
+}

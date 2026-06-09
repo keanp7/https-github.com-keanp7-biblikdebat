@@ -1,12 +1,13 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { BookOpen, User, LogIn } from 'lucide-react';
+import { BookOpen, User, LogIn, ShieldAlert } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar() {
   const t = useTranslations('Index');
 
   return (
-    <nav className="bg-primary text-white shadow-md">
+    <nav className="bg-primary text-white shadow-md relative z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -16,12 +17,18 @@ export default function Navbar() {
             </Link>
           </div>
           
-          <div className="flex items-center gap-6">
-            <Link href="/groups" className="hover:text-secondary transition-colors font-medium">
+          <div className="flex items-center gap-4 sm:gap-6 text-sm sm:text-base">
+            <LanguageSwitcher />
+            
+            <Link href="/groups" className="hover:text-secondary transition-colors font-medium hidden sm:block">
               Communities
             </Link>
-            <Link href="/ai" className="hover:text-secondary transition-colors font-medium">
+            <Link href="/ai" className="hover:text-secondary transition-colors font-medium hidden sm:block">
               Biblik AI
+            </Link>
+            <Link href="/admin" className="hover:text-secondary transition-colors font-medium flex items-center gap-1">
+              <ShieldAlert className="h-4 w-4" />
+              <span className="hidden sm:inline">Admin</span>
             </Link>
             <Link href="/auth/login" className="hover:text-secondary transition-colors flex items-center gap-1">
               <LogIn className="h-5 w-5" />
