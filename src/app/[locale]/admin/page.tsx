@@ -19,10 +19,10 @@ export default async function AdminDashboard({ params }: { params: Promise<{ loc
   ];
 
   return (
-    <div className="p-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">{t('overview')}</h1>
-        <p className="text-gray-600 mt-2">{t('welcome')}</p>
+    <div className="p-4 sm:p-8">
+      <div className="mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">{t('overview')}</h1>
+        <p className="text-gray-600 mt-1 sm:mt-2">{t('welcome')}</p>
       </div>
 
       {/* Stats Grid */}

@@ -9,9 +9,9 @@ export default function AIPage() {
   const t = useTranslations('AI');
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 h-[calc(100vh-10rem)] flex flex-col">
-      <div className="text-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-900 flex items-center justify-center gap-3">
+    <div className="max-w-4xl mx-auto px-4 py-4 sm:py-8 h-[calc(100dvh-5rem)] sm:h-[calc(100vh-10rem)] flex flex-col">
+      <div className="text-center mb-4 sm:mb-6">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 flex items-center justify-center gap-2 sm:gap-3">
           <Bot className="h-8 w-8 text-primary" />
           {t('title')}
         </h1>
