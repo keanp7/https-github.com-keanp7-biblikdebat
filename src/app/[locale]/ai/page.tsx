@@ -1,12 +1,76 @@
 'use client';
 
 import { useChat } from '@ai-sdk/react';
-import { Bot, Send, User } from 'lucide-react';
+import { Bot, Send, User, BookOpen, Search } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useState, useEffect } from 'react';
+import { createClient } from '@/lib/supabase/client';
 
 export default function AIPage() {
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat() as any;
+  const [conversationId] = useState(() => crypto.randomUUID());
+  const [userId, setUserId] = useState<string | null>(null);
+  const supabase = createClient();
   const t = useTranslations('AI');
+
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data }) => {
+      if (data.user) setUserId(data.user.id);
+    });
+  }, [supabase]);
+
+  // Ensure conversation exists in DB before sending messages
+  const ensureConversation = async () => {
+    if (!userId) return;
+    const { data } = await supabase.from('ai_conversations').select('id').eq('id', conversationId).single();
+    if (!data) {
+      await supabase.from('ai_conversations').insert([{ id: conversationId, user_id: userId, title: 'New Conversation' }]);
+    }
+  };
+
+  const { messages, input, handleInputChange, handleSubmit, isLoading, append } = useChat({
+    onFinish: async (message) => {
+      if (!userId) return;
+      await ensureConversation();
+      await supabase.from('ai_messages').insert([{
+        conversation_id: conversationId,
+        role: 'assistant',
+        content: message.content
+      }]);
+    }
+  });
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+    
+    if (userId) {
+      await ensureConversation();
+      await supabase.from('ai_messages').insert([{
+        conversation_id: conversationId,
+        role: 'user',
+        content: input
+      }]);
+    }
+    handleSubmit(e);
+  };
+
+  const generateStudy = async () => {
+    const prompt = "Please generate a brief Bible study outline on a random uplifting chapter.";
+    if (userId) {
+      await ensureConversation();
+      await supabase.from('ai_messages').insert([{ conversation_id: conversationId, role: 'user', content: prompt }]);
+    }
+    append({ role: 'user', content: prompt });
+  };
+
+  const explainVerse = async () => {
+    const prompt = "Please explain the meaning and context of Romans 8:28.";
+    if (userId) {
+      await ensureConversation();
+      await supabase.from('ai_messages').insert([{ conversation_id: conversationId, role: 'user', content: prompt }]);
+    }
+    append({ role: 'user', content: prompt });
+  };
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-4 sm:py-8 h-[calc(100dvh-5rem)] sm:h-[calc(100vh-10rem)] flex flex-col">
@@ -16,6 +80,16 @@ export default function AIPage() {
           {t('title')}
         </h1>
         <p className="text-gray-600 mt-2">{t('desc')}</p>
+        
+        {/* AI Tools */}
+        <div className="flex justify-center gap-4 mt-4">
+          <button onClick={generateStudy} className="flex items-center gap-2 text-sm bg-blue-50 text-primary border border-blue-200 px-4 py-2 rounded-full hover:bg-blue-100 transition">
+            <BookOpen className="h-4 w-4" /> Bible Study
+          </button>
+          <button onClick={explainVerse} className="flex items-center gap-2 text-sm bg-green-50 text-green-700 border border-green-200 px-4 py-2 rounded-full hover:bg-green-100 transition">
+            <Search className="h-4 w-4" /> Explain Verse
+          </button>
+        </div>
       </div>
 
       <div className="flex-1 bg-white rounded-xl shadow-sm border border-gray-100 overflow-y-auto p-6 space-y-6">
@@ -62,7 +136,7 @@ export default function AIPage() {
         )}
       </div>
 
-      <form onSubmit={handleSubmit} className="mt-4 relative">
+      <form onSubmit={onSubmit} className="mt-4 relative">
         <input
           value={input}
           onChange={handleInputChange}

@@ -20,9 +20,24 @@ export default function CommentSection({ debateId, comments }: { debateId: strin
       return;
     }
 
-    const { error } = await supabase.from('comments').insert([
-      { debate_id: debateId, user_id: session.user.id, content, parent_id: replyTo }
-    ]);
+    const payload = { debate_id: debateId, user_id: session.user.id, content, parent_id: replyTo };
+
+    if (!navigator.onLine) {
+      // Import dynamically or ensure db is available
+      const { db } = await import('@/lib/db/offline');
+      await db.pending_actions.add({
+        type: 'CREATE_COMMENT',
+        payload,
+        status: 'pending',
+        created_at: Date.now()
+      });
+      alert(t('offline_comment_queued', { fallback: 'You are offline. Your comment has been queued and will sync when reconnected.' }));
+      setContent('');
+      setReplyTo(null);
+      return;
+    }
+
+    const { error } = await supabase.from('comments').insert([payload]);
 
     if (!error) {
       setContent('');
