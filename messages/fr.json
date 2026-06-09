@@ -36,5 +36,26 @@
     "reports": "Rapports",
     "recent_activity": "Activité Récente de la Plateforme",
     "activity_placeholder": "La journalisation des activités apparaîtra ici..."
+  },
+  "Landing": {
+    "join_community": "Rejoindre la Communauté",
+    "sign_in": "Se Connecter",
+    "how_it_works": "Comment ça Marche",
+    "step1_title": "Rejoindre un Groupe",
+    "step1_desc": "Trouvez une communauté, une église ou un groupe d'étude pour vous connecter avec des croyants du monde entier.",
+    "step2_title": "Citer les Écritures",
+    "step2_desc": "Chaque débat doit être enraciné dans la Bible. Sélectionnez un verset et commencez la discussion.",
+    "step3_title": "Débattre et Apprendre",
+    "step3_desc": "Utilisez le texte, les messages vocaux ou notre assistant IA pour plonger dans les vérités théologiques.",
+    "features_title": "Fonctionnalités Puissantes",
+    "feature1_title": "Chat Vocal en Direct",
+    "feature1_desc": "Messagerie vocale en temps réel comme WhatsApp. Maintenez pour enregistrer et partager vos pensées avec le groupe.",
+    "feature2_title": "Assistant IA Biblique",
+    "feature2_desc": "Posez des questions théologiques profondes et obtenez des réponses basées sur les Écritures avec notre outil d'IA avancé.",
+    "feature3_title": "Expérience Hors Ligne",
+    "feature3_desc": "Pas d'Internet ? Pas de problème. Lisez les débats hors ligne. Nous synchroniserons à votre reconnexion.",
+    "cta_title": "Prêt à grandir dans la foi ensemble ?",
+    "cta_desc": "Créez un compte aujourd'hui et rejoignez des milliers de croyants qui discutent des Écritures.",
+    "cta_button": "Commencer Gratuitement"
   }
 }

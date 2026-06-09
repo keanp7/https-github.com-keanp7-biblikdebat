@@ -36,5 +36,26 @@
     "reports": "Reportes",
     "recent_activity": "Actividad Reciente de la Plataforma",
     "activity_placeholder": "El registro de actividades aparecerá aquí..."
+  },
+  "Landing": {
+    "join_community": "Únete a la Comunidad",
+    "sign_in": "Iniciar Sesión",
+    "how_it_works": "Cómo Funciona",
+    "step1_title": "Únete a un Grupo",
+    "step1_desc": "Encuentra una comunidad, iglesia o grupo de estudio para conectarte con creyentes de todo el mundo.",
+    "step2_title": "Citar Escrituras",
+    "step2_desc": "Cada debate debe estar arraigado en la Biblia. Selecciona un versículo y comienza la discusión.",
+    "step3_title": "Debatir y Aprender",
+    "step3_desc": "Usa texto, mensajes de voz o nuestro asistente de IA para profundizar en las verdades teológicas.",
+    "features_title": "Características Poderosas",
+    "feature1_title": "Chat de Voz en Vivo",
+    "feature1_desc": "Mensajería de voz en tiempo real estilo WhatsApp. Mantén presionado para grabar y compartir con el grupo.",
+    "feature2_title": "Asistente de IA Bíblica",
+    "feature2_desc": "Haz preguntas teológicas profundas y obtén respuestas basadas en las escrituras con nuestra herramienta de IA.",
+    "feature3_title": "Experiencia Sin Conexión",
+    "feature3_desc": "¿No hay Internet? No hay problema. Lee los debates sin conexión. Sincronizaremos cuando te reconectes.",
+    "cta_title": "¿Listo para crecer en la fe juntos?",
+    "cta_desc": "Crea una cuenta hoy y únete a miles de creyentes que discuten las Escrituras.",
+    "cta_button": "Comenzar Gratis"
   }
 }

@@ -36,5 +36,26 @@
     "reports": "Reports",
     "recent_activity": "Recent Platform Activity",
     "activity_placeholder": "Activity logging will appear here..."
+  },
+  "Landing": {
+    "join_community": "Join the Community",
+    "sign_in": "Sign In",
+    "how_it_works": "How It Works",
+    "step1_title": "Join a Group",
+    "step1_desc": "Find a community, church, or study group to connect with believers worldwide.",
+    "step2_title": "Quote Scripture",
+    "step2_desc": "Every debate must be rooted in the Bible. Select a verse and start the discussion.",
+    "step3_title": "Debate & Learn",
+    "step3_desc": "Use text, voice messages, or our AI assistant to dive deep into theological truths.",
+    "features_title": "Powerful Features",
+    "feature1_title": "Live Voice Chat",
+    "feature1_desc": "WhatsApp-style real-time voice messaging. Hold to record and instantly broadcast your thoughts to the group.",
+    "feature2_title": "Biblik AI Assistant",
+    "feature2_desc": "Ask deep theological questions and get instant, scripture-backed answers from our advanced AI learning tool.",
+    "feature3_title": "Offline-First UX",
+    "feature3_desc": "No internet? No problem. Read debates and queue messages offline. We automatically sync when you reconnect.",
+    "cta_title": "Ready to grow in faith together?",
+    "cta_desc": "Create an account today and join thousands of believers discussing Scripture.",
+    "cta_button": "Get Started for Free"
   }
 }

@@ -36,5 +36,26 @@
     "reports": "Rapò",
     "recent_activity": "Aktivite Resan sou Platfòm nan",
     "activity_placeholder": "Aktivite ap parèt isit la..."
+  },
+  "Landing": {
+    "join_community": "Antre nan Kominote a",
+    "sign_in": "Konekte",
+    "how_it_works": "Kijan Li Fonksyone",
+    "step1_title": "Antre nan yon Gwoup",
+    "step1_desc": "Jwenn yon kominote, legliz, oswa gwoup etid pou konekte ak kwayan atravè lemond.",
+    "step2_title": "Site Ekriti yo",
+    "step2_desc": "Chak deba dwe baze sou Bib la. Chwazi yon vèsè epi kòmanse diskisyon an.",
+    "step3_title": "Debat ak Aprann",
+    "step3_desc": "Sèvi ak tèks, mesaj vwa, oswa asistan AI nou an pou plonje byen fon nan verite teyolojik yo.",
+    "features_title": "Karakteristik Pwisan",
+    "feature1_title": "Mesaj Vwa An Dirèk",
+    "feature1_desc": "Mesaj vwa an dirèk tankou WhatsApp. Kenbe pou anrejistre epi pataje panse ou ak gwoup la.",
+    "feature2_title": "Asistan AI Biblik",
+    "feature2_desc": "Poze kesyon teyolojik pwofon epi jwenn repons ki baze sou ekriti yo nan zouti AI avanse nou an.",
+    "feature3_title": "Eksperyans San Entènèt",
+    "feature3_desc": "Pa gen entènèt? Pa gen pwoblèm. Li deba yo offline. Nou pral senkronize lè ou rekonekte.",
+    "cta_title": "Pare pou nou grandi nan lafwa ansanm?",
+    "cta_desc": "Kreye yon kont jodi a epi rejwenn plizyè milye kwayan k ap diskite sou Ekriti yo.",
+    "cta_button": "Kòmanse Gratis"
   }
 }
