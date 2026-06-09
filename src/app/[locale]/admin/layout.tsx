@@ -2,7 +2,27 @@ import { ReactNode } from 'react';
 import Link from 'next/link';
 import { LayoutDashboard, Users, MessageSquare, Settings } from 'lucide-react';
 
-export default function AdminLayout({ children }: { children: ReactNode }) {
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
+
+export default async function AdminLayout({ children }: { children: ReactNode }) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) {
+    redirect('/auth/login');
+  }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
+    .single();
+
+  if (!profile || !['admin', 'owner'].includes(profile.role)) {
+    redirect('/groups');
+  }
+
   return (
     <div className="flex h-[calc(100vh-4rem)] bg-gray-50">
       {/* Sidebar */}

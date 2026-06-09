@@ -2,6 +2,39 @@
   "Index": {
     "title": "Biblik Debat",
     "hero_title": "Diskisyon Biblik Òganize Pa Vèsè",
-    "hero_subtitle": "Etidye Pawòl la. Pataje Panse Ou. Grandi Espirityèlman."
+    "hero_subtitle": "Etidye Pawòl la. Pataje Lide Ou. Grandi Espirityèlman."
+  },
+  "Navbar": {
+    "communities": "Kominote",
+    "ai": "Entèlijans Atifisyèl",
+    "admin": "Administratè",
+    "signin": "Konekte"
+  },
+  "Auth": {
+    "login_title": "Konekte sou kont ou",
+    "signup_title": "Kreye yon nouvo kont",
+    "identifier_placeholder": "Imèl oswa Nimewo Telefòn",
+    "password_placeholder": "Modpas",
+    "name_placeholder": "Non Konplè",
+    "login_button": "Konekte",
+    "signup_button": "Enskri",
+    "no_account": "Oswa kreye yon nouvo kont",
+    "has_account": "Ou deja gen yon kont? Konekte"
+  },
+  "Admin": {
+    "panel_title": "Panèl Administratè",
+    "dashboard": "Tablodbò",
+    "users": "Itilizatè",
+    "groups": "Gwoup ak Diskisyon",
+    "settings": "Anviwònman",
+    "overview": "Apèsi sou Tablodbò a",
+    "welcome": "Byenveni nan panèl administrasyon Biblik Debat la.",
+    "total_users": "Total Itilizatè",
+    "active_groups": "Gwoup Aktif",
+    "server_status": "Estati Sèvè",
+    "healthy": "Nòmal",
+    "reports": "Rapò",
+    "recent_activity": "Aktivite Resan sou Platfòm nan",
+    "activity_placeholder": "Aktivite ap parèt isit la..."
   }
 }

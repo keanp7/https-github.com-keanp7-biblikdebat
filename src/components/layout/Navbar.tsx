@@ -1,10 +1,10 @@
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { BookOpen, User, LogIn, ShieldAlert } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar() {
-  const t = useTranslations('Index');
+  const t = useTranslations('Navbar');
 
   return (
     <nav className="bg-primary text-white shadow-md relative z-50">
@@ -21,18 +21,18 @@ export default function Navbar() {
             <LanguageSwitcher />
             
             <Link href="/groups" className="hover:text-secondary transition-colors font-medium hidden sm:block">
-              Communities
+              {t('communities')}
             </Link>
             <Link href="/ai" className="hover:text-secondary transition-colors font-medium hidden sm:block">
-              Biblik AI
+              {t('ai')}
             </Link>
             <Link href="/admin" className="hover:text-secondary transition-colors font-medium flex items-center gap-1">
               <ShieldAlert className="h-4 w-4" />
-              <span className="hidden sm:inline">Admin</span>
+              <span className="hidden sm:inline">{t('admin')}</span>
             </Link>
             <Link href="/auth/login" className="hover:text-secondary transition-colors flex items-center gap-1">
               <LogIn className="h-5 w-5" />
-              <span className="hidden sm:inline">Sign In</span>
+              <span className="hidden sm:inline">{t('signin')}</span>
             </Link>
           </div>
         </div>

@@ -3,5 +3,38 @@
     "title": "Biblik Debat",
     "hero_title": "Organized Biblical Discussions By Verse",
     "hero_subtitle": "Study the Word. Share Your Thoughts. Grow Spiritually."
+  },
+  "Navbar": {
+    "communities": "Communities",
+    "ai": "Biblik AI",
+    "admin": "Admin",
+    "signin": "Sign In"
+  },
+  "Auth": {
+    "login_title": "Sign in to your account",
+    "signup_title": "Create a new account",
+    "identifier_placeholder": "Email or Phone Number",
+    "password_placeholder": "Password",
+    "name_placeholder": "Full Name",
+    "login_button": "Sign in",
+    "signup_button": "Sign up",
+    "no_account": "Or create a new account",
+    "has_account": "Already have an account? Sign in"
+  },
+  "Admin": {
+    "panel_title": "Admin Panel",
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "groups": "Groups & Debates",
+    "settings": "Settings",
+    "overview": "Dashboard Overview",
+    "welcome": "Welcome to the Biblik Debat administration panel.",
+    "total_users": "Total Users",
+    "active_groups": "Active Groups",
+    "server_status": "Server Status",
+    "healthy": "Healthy",
+    "reports": "Reports",
+    "recent_activity": "Recent Platform Activity",
+    "activity_placeholder": "Activity logging will appear here..."
   }
 }

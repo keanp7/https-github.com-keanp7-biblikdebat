@@ -28,7 +28,25 @@ export async function updateSession(request: NextRequest, response: NextResponse
     )
 
     // refreshing the auth token
-    await supabase.auth.getUser()
+    const { data: { user } } = await supabase.auth.getUser()
+
+    // RBAC: Protect /admin routes
+    if (request.nextUrl.pathname.includes('/admin')) {
+      if (!user) {
+        return NextResponse.redirect(new URL('/auth/login', request.url))
+      }
+      
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', user.id)
+        .single()
+
+      if (!profile || !['admin', 'owner'].includes(profile.role)) {
+        return NextResponse.redirect(new URL('/groups', request.url))
+      }
+    }
+
   } catch (error) {
     console.error('Middleware Supabase error:', error);
   }

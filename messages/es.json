@@ -3,5 +3,38 @@
     "title": "Biblik Debat",
     "hero_title": "Discusiones Bíblicas Organizadas Por Versículo",
     "hero_subtitle": "Estudia la Palabra. Comparte Tus Pensamientos. Crece Espiritualmente."
+  },
+  "Navbar": {
+    "communities": "Comunidades",
+    "ai": "IA Bíblica",
+    "admin": "Admin",
+    "signin": "Iniciar Sesión"
+  },
+  "Auth": {
+    "login_title": "Inicia sesión en tu cuenta",
+    "signup_title": "Crear una nueva cuenta",
+    "identifier_placeholder": "Correo o Número de Teléfono",
+    "password_placeholder": "Contraseña",
+    "name_placeholder": "Nombre Completo",
+    "login_button": "Iniciar sesión",
+    "signup_button": "Regístrate",
+    "no_account": "O crear una nueva cuenta",
+    "has_account": "¿Ya tienes una cuenta? Iniciar sesión"
+  },
+  "Admin": {
+    "panel_title": "Panel de Administración",
+    "dashboard": "Tablero",
+    "users": "Usuarios",
+    "groups": "Grupos y Debates",
+    "settings": "Configuraciones",
+    "overview": "Resumen del Tablero",
+    "welcome": "Bienvenido al panel de administración de Biblik Debat.",
+    "total_users": "Total de Usuarios",
+    "active_groups": "Grupos Activos",
+    "server_status": "Estado del Servidor",
+    "healthy": "Saludable",
+    "reports": "Reportes",
+    "recent_activity": "Actividad Reciente de la Plataforma",
+    "activity_placeholder": "El registro de actividades aparecerá aquí..."
   }
 }
