@@ -28,7 +28,7 @@ export default function AIPage() {
   };
 
   const { messages, input, handleInputChange, handleSubmit, isLoading, append } = useChat({
-    onFinish: async (message) => {
+    onFinish: async (message: any) => {
       if (!userId) return;
       await ensureConversation();
       await supabase.from('ai_messages').insert([{
@@ -37,7 +37,7 @@ export default function AIPage() {
         content: message.content
       }]);
     }
-  });
+  }) as any;
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
