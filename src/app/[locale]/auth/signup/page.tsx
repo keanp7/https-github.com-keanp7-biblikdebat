@@ -26,8 +26,8 @@ export default function SignupPage() {
 
     const { data, error } = await supabase.auth.signUp(
       isEmail 
-        ? { email: identifier, password } 
-        : { phone: identifier, password }
+        ? { email: identifier, password, options: { data: { full_name: fullName } } } 
+        : { phone: identifier, password, options: { data: { full_name: fullName } } }
     );
 
     if (error) {
