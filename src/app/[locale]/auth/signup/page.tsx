@@ -1,15 +1,23 @@
-import { Link } from '@/i18n/routing';
-import { createClient } from '@/lib/supabase/server';
-import { redirect } from 'next/navigation';
-import { getTranslations } from 'next-intl/server';
+'use client';
 
-export default async function SignupPage() {
-  const t = await getTranslations('Auth');
+import { Link, useRouter } from '@/i18n/routing';
+import { createClient } from '@/lib/supabase/client';
+import { useTranslations } from 'next-intl';
+import { useState } from 'react';
 
-  async function handleSignup(formData: FormData) {
-    'use server';
-    const supabase = await createClient();
+export default function SignupPage() {
+  const t = useTranslations('Auth');
+  const router = useRouter();
+  const supabase = createClient();
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+
+  async function handleSignup(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsLoading(true);
+    setErrorMsg('');
     
+    const formData = new FormData(e.currentTarget);
     const fullName = formData.get('name') as string;
     const identifier = formData.get('identifier') as string;
     const password = formData.get('password') as string;
@@ -23,18 +31,20 @@ export default async function SignupPage() {
     );
 
     if (error) {
-      redirect('/auth/signup?error=Could not sign up');
+      setErrorMsg(error.message || 'Could not sign up');
+      setIsLoading(false);
+      return;
     }
 
-    // Insert profile after sign up if user is created
     if (data.user) {
-      await supabase.from('profiles').insert([{
+      await supabase.from('profiles').upsert([{
         id: data.user.id,
         full_name: fullName
       }]);
     }
 
-    redirect('/groups');
+    router.push('/groups');
+    router.refresh();
   }
 
   return (
@@ -51,7 +61,12 @@ export default async function SignupPage() {
             </Link>
           </p>
         </div>
-        <form className="mt-8 space-y-6" action={handleSignup}>
+        <form className="mt-8 space-y-6" onSubmit={handleSignup}>
+          {errorMsg && (
+            <div className="bg-red-50 text-red-600 p-3 rounded-md text-sm text-center">
+              {errorMsg}
+            </div>
+          )}
           <div className="-space-y-px rounded-md shadow-sm">
             <div>
               <label htmlFor="full-name" className="sr-only">
@@ -99,9 +114,10 @@ export default async function SignupPage() {
           <div>
             <button
               type="submit"
-              className="group relative flex w-full justify-center rounded-md bg-accent px-4 py-3 text-sm font-bold text-white hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent transition-colors shadow-md"
+              disabled={isLoading}
+              className="group relative flex w-full justify-center rounded-md bg-accent px-4 py-3 text-sm font-bold text-white hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent transition-colors shadow-md disabled:opacity-50"
             >
-              {t('signup_button')}
+              {isLoading ? '...' : t('signup_button')}
             </button>
           </div>
         </form>

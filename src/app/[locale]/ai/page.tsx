@@ -79,14 +79,14 @@ export default function AIPage() {
           <Bot className="h-8 w-8 text-primary" />
           {t('title')}
         </h1>
-        <p className="text-gray-600 mt-2">{t('desc')}</p>
+        <p className="text-gray-600 mt-2 text-sm sm:text-base px-2">{t('desc')}</p>
         
         {/* AI Tools */}
-        <div className="flex justify-center gap-4 mt-4">
-          <button onClick={generateStudy} className="flex items-center gap-2 text-sm bg-blue-50 text-primary border border-blue-200 px-4 py-2 rounded-full hover:bg-blue-100 transition">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mt-4 px-2">
+          <button onClick={generateStudy} className="flex items-center gap-2 text-xs sm:text-sm bg-blue-50 text-primary border border-blue-200 px-3 sm:px-4 py-2 rounded-full hover:bg-blue-100 transition">
             <BookOpen className="h-4 w-4" /> Bible Study
           </button>
-          <button onClick={explainVerse} className="flex items-center gap-2 text-sm bg-green-50 text-green-700 border border-green-200 px-4 py-2 rounded-full hover:bg-green-100 transition">
+          <button onClick={explainVerse} className="flex items-center gap-2 text-xs sm:text-sm bg-green-50 text-green-700 border border-green-200 px-3 sm:px-4 py-2 rounded-full hover:bg-green-100 transition">
             <Search className="h-4 w-4" /> Explain Verse
           </button>
         </div>
@@ -111,8 +111,8 @@ export default function AIPage() {
                   <Bot className="h-5 w-5 text-primary" />
                 </div>
               )}
-              <div className={`max-w-[80%] rounded-2xl px-5 py-3 ${m.role === 'user' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-800'}`}>
-                <p className="whitespace-pre-wrap leading-relaxed">{m.content}</p>
+              <div className={`max-w-[85%] sm:max-w-[80%] rounded-2xl px-4 sm:px-5 py-2 sm:py-3 ${m.role === 'user' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-800'}`}>
+                <p className="whitespace-pre-wrap leading-relaxed break-words text-sm sm:text-base">{m.content}</p>
               </div>
               {m.role === 'user' && (
                 <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
