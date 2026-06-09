@@ -5,7 +5,8 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 
-export default async function AdminLayout({ children, params: { locale } }: { children: ReactNode, params: { locale: string } }) {
+export default async function AdminLayout({ children, params }: { children: ReactNode, params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const supabase = await createClient();
   const t = await getTranslations({ locale, namespace: 'Admin' });
   const { data: { user } } = await supabase.auth.getUser();

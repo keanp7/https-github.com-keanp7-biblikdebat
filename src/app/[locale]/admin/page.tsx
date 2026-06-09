@@ -2,7 +2,8 @@ import { createClient } from '@/lib/supabase/server';
 import { Users, MessageSquare, Activity, AlertCircle } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
-export default async function AdminDashboard({ params: { locale } }: { params: { locale: string } }) {
+export default async function AdminDashboard({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const supabase = await createClient();
   const t = await getTranslations({ locale, namespace: 'Admin' });
   
