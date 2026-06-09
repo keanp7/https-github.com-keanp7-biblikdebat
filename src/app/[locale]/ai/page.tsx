@@ -2,29 +2,31 @@
 
 import { useChat } from '@ai-sdk/react';
 import { Bot, Send, User } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export default function AIPage() {
   const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat() as any;
+  const t = useTranslations('AI');
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 h-[calc(100vh-10rem)] flex flex-col">
       <div className="text-center mb-6">
         <h1 className="text-3xl font-bold text-gray-900 flex items-center justify-center gap-3">
           <Bot className="h-8 w-8 text-primary" />
-          Biblik AI Assistant
+          {t('title')}
         </h1>
-        <p className="text-gray-600 mt-2">Ask Bible questions, explore topics, and get scripture insights.</p>
+        <p className="text-gray-600 mt-2">{t('desc')}</p>
       </div>
 
       <div className="flex-1 bg-white rounded-xl shadow-sm border border-gray-100 overflow-y-auto p-6 space-y-6">
         {messages.length === 0 ? (
           <div className="h-full flex flex-col items-center justify-center text-gray-400">
             <Bot className="h-16 w-16 mb-4 opacity-50" />
-            <p>How can I help you understand the Bible today?</p>
+            <p>{t('greeting')}</p>
             <div className="mt-8 flex flex-wrap gap-4 justify-center max-w-2xl">
-              <button onClick={() => handleInputChange({ target: { value: 'What does John 3:16 mean?' } } as any)} className="bg-gray-50 px-4 py-2 rounded-full text-sm text-gray-700 hover:bg-gray-100 border">What does John 3:16 mean?</button>
-              <button onClick={() => handleInputChange({ target: { value: 'Explain the Book of Romans' } } as any)} className="bg-gray-50 px-4 py-2 rounded-full text-sm text-gray-700 hover:bg-gray-100 border">Explain the Book of Romans</button>
-              <button onClick={() => handleInputChange({ target: { value: 'Create a Bible study on faith' } } as any)} className="bg-gray-50 px-4 py-2 rounded-full text-sm text-gray-700 hover:bg-gray-100 border">Create a Bible study on faith</button>
+              <button onClick={() => handleInputChange({ target: { value: t('q1') } } as any)} className="bg-gray-50 px-4 py-2 rounded-full text-sm text-gray-700 hover:bg-gray-100 border">{t('q1')}</button>
+              <button onClick={() => handleInputChange({ target: { value: t('q2') } } as any)} className="bg-gray-50 px-4 py-2 rounded-full text-sm text-gray-700 hover:bg-gray-100 border">{t('q2')}</button>
+              <button onClick={() => handleInputChange({ target: { value: t('q3') } } as any)} className="bg-gray-50 px-4 py-2 rounded-full text-sm text-gray-700 hover:bg-gray-100 border">{t('q3')}</button>
             </div>
           </div>
         ) : (
@@ -64,7 +66,7 @@ export default function AIPage() {
         <input
           value={input}
           onChange={handleInputChange}
-          placeholder="Ask Biblik AI..."
+          placeholder={t('placeholder')}
           className="w-full bg-white border border-gray-300 rounded-full py-4 pl-6 pr-16 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
         />
         <button type="submit" disabled={isLoading || !(input || '').trim()} className="absolute right-2 top-2 p-2 bg-primary text-white rounded-full hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed transition">

@@ -1,11 +1,13 @@
 import { createClient } from '@/lib/supabase/server';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import CommentSection from '@/components/comments/CommentSection';
+import { getTranslations } from 'next-intl/server';
 
-export default async function DebateDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function DebateDetailPage({ params }: { params: Promise<{ locale: string, id: string }> }) {
+  const { locale, id } = await params;
   const supabase = await createClient();
+  const t = await getTranslations({ locale, namespace: 'Debates' });
 
   const { data: debate, error } = await supabase
     .from('debates')
@@ -26,7 +28,7 @@ export default async function DebateDetailPage({ params }: { params: Promise<{ i
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <Link href={`/groups/${debate.group_id}`} className="text-primary hover:underline font-medium mb-6 inline-block">
-        &larr; Back to {debate.groups?.name}
+        {t('back', { name: debate.groups?.name })}
       </Link>
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">

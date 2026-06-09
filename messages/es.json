@@ -57,5 +57,47 @@
     "cta_title": "¿Listo para crecer en la fe juntos?",
     "cta_desc": "Crea una cuenta hoy y únete a miles de creyentes que discuten las Escrituras.",
     "cta_button": "Comenzar Gratis"
+  },
+  "AI": {
+    "title": "Asistente de IA Biblik",
+    "desc": "Haga preguntas bíblicas, explore temas y obtenga información sobre las Escrituras.",
+    "greeting": "¿Cómo puedo ayudarte a entender la Biblia hoy?",
+    "q1": "¿Qué significa Juan 3:16?",
+    "q2": "Explique el libro de Romanos",
+    "q3": "Crear un estudio bíblico sobre la fe",
+    "placeholder": "Pregunta a la IA Biblik..."
+  },
+  "Groups": {
+    "communities": "Comunidades",
+    "communities_desc": "Únete a un grupo para estudiar la Biblia juntos.",
+    "create_group": "Crear grupo",
+    "error": "Error al cargar grupos.",
+    "no_groups": "No se encontraron grupos",
+    "no_groups_desc": "¡Sé el primero en crear una comunidad!",
+    "view_community": "Ver comunidad →",
+    "donate": "Donar y apoyar",
+    "debates": "Debates y discusiones",
+    "voice_chat": "🎤 Chat de voz",
+    "start_debate": "Iniciar debate",
+    "no_debates": "No hay debates aún",
+    "no_debates_desc": "¡Comienza una discusión citando un versículo bíblico!"
+  },
+  "Debates": {
+    "back": "← Volver a {name}",
+    "discussion": "Discusión",
+    "reply": "Responder",
+    "post_reply": "Publicar respuesta",
+    "cancel": "Cancelar",
+    "post_comment": "Publicar comentario",
+    "write_reply": "Escribe una respuesta...",
+    "share_thoughts": "Comparte tus pensamientos sobre este versículo..."
+  },
+  "Voice": {
+    "title": "Chat de voz en vivo",
+    "realtime": "Tiempo real",
+    "no_messages": "No hay mensajes de voz aún.",
+    "sending": "Enviando...",
+    "group_chat": "Chat de voz grupal",
+    "desc": "Mantén presionado el micrófono para enviar un mensaje a todos en {name}."
   }
 }

@@ -6,6 +6,7 @@ import VoiceRecorderButton from './VoiceRecorderButton';
 import VoiceMessageBubble from './VoiceMessageBubble';
 import { createClient } from '@/lib/supabase/client';
 import { Mic, Loader2 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface Props {
   groupId: string;
@@ -16,6 +17,7 @@ export default function VoiceChatRoom({ groupId }: Props) {
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations('Voice');
 
   useEffect(() => {
     const supabase = createClient();
@@ -56,11 +58,11 @@ export default function VoiceChatRoom({ groupId }: Props) {
       <div className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
         <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">
           <Mic className="h-5 w-5 text-primary" />
-          Live Voice Chat
+          {t('title')}
         </h2>
         <span className="text-xs font-medium bg-green-100 text-green-800 px-2 py-1 rounded-full flex items-center gap-1">
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-          Real-time
+          {t('realtime')}
         </span>
       </div>
 
@@ -77,7 +79,7 @@ export default function VoiceChatRoom({ groupId }: Props) {
         ) : messages.length === 0 ? (
           <div className="h-full flex flex-col items-center justify-center text-gray-500">
             <div className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm text-sm">
-              No voice messages yet. Be the first to speak!
+              {t('no_messages')}
             </div>
           </div>
         ) : (
@@ -98,7 +100,7 @@ export default function VoiceChatRoom({ groupId }: Props) {
         {isUploading ? (
           <div className="flex items-center gap-3 text-primary font-medium">
             <Loader2 className="h-5 w-5 animate-spin" />
-            Sending...
+            {t('sending')}
           </div>
         ) : (
           <VoiceRecorderButton onRecordingComplete={handleRecordingComplete} />

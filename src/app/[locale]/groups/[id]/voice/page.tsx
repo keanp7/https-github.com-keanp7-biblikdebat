@@ -1,11 +1,13 @@
 import { createClient } from '@/lib/supabase/server';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import VoiceChatRoom from '@/components/voice/VoiceChatRoom';
+import { getTranslations } from 'next-intl/server';
 
-export default async function VoiceChatPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function VoiceChatPage({ params }: { params: Promise<{ locale: string, id: string }> }) {
+  const { locale, id } = await params;
   const supabase = await createClient();
+  const t = await getTranslations({ locale, namespace: 'Voice' });
   
   const { data: group } = await supabase.from('groups').select('*').eq('id', id).single();
   if (!group) notFound();
@@ -19,8 +21,8 @@ export default async function VoiceChatPage({ params }: { params: Promise<{ id: 
       </div>
 
       <div className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-900">Group Voice Chat</h1>
-        <p className="text-gray-600 mt-2">Hold the microphone to send a voice message to everyone in {group.name}.</p>
+        <h1 className="text-3xl font-bold text-gray-900">{t('group_chat')}</h1>
+        <p className="text-gray-600 mt-2">{t('desc', { name: group.name })}</p>
       </div>
 
       <VoiceChatRoom groupId={group.id} />

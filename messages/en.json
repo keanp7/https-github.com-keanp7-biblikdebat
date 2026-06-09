@@ -57,5 +57,47 @@
     "cta_title": "Ready to grow in faith together?",
     "cta_desc": "Create an account today and join thousands of believers discussing Scripture.",
     "cta_button": "Get Started for Free"
+  },
+  "AI": {
+    "title": "Biblik AI Assistant",
+    "desc": "Ask Bible questions, explore topics, and get scripture insights.",
+    "greeting": "How can I help you understand the Bible today?",
+    "q1": "What does John 3:16 mean?",
+    "q2": "Explain the Book of Romans",
+    "q3": "Create a Bible study on faith",
+    "placeholder": "Ask Biblik AI..."
+  },
+  "Groups": {
+    "communities": "Communities",
+    "communities_desc": "Join a group to study the Bible together.",
+    "create_group": "Create Group",
+    "error": "Error loading groups. Ensure the database schema is created.",
+    "no_groups": "No groups found",
+    "no_groups_desc": "Be the first to create a community!",
+    "view_community": "View Community →",
+    "donate": "Donate & Support",
+    "debates": "Debates & Discussions",
+    "voice_chat": "🎤 Voice Chat",
+    "start_debate": "Start Debate",
+    "no_debates": "No debates yet",
+    "no_debates_desc": "Start a discussion by referencing a Bible verse!"
+  },
+  "Debates": {
+    "back": "← Back to {name}",
+    "discussion": "Discussion",
+    "reply": "Reply",
+    "post_reply": "Post Reply",
+    "cancel": "Cancel",
+    "post_comment": "Post Comment",
+    "write_reply": "Write a reply...",
+    "share_thoughts": "Share your thoughts on this verse..."
+  },
+  "Voice": {
+    "title": "Live Voice Chat",
+    "realtime": "Real-time",
+    "no_messages": "No voice messages yet. Be the first to speak!",
+    "sending": "Sending...",
+    "group_chat": "Group Voice Chat",
+    "desc": "Hold the microphone to send a voice message to everyone in {name}."
   }
 }

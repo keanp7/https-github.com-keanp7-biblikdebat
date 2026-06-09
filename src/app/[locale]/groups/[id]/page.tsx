@@ -1,11 +1,13 @@
 import { createClient } from '@/lib/supabase/server';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
 import { MessageSquare, PlusCircle } from 'lucide-react';
+import { getTranslations } from 'next-intl/server';
 
-export default async function GroupDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function GroupDetailPage({ params }: { params: Promise<{ locale: string, id: string }> }) {
+  const { locale, id } = await params;
   const supabase = await createClient();
+  const t = await getTranslations({ locale, namespace: 'Groups' });
   
   const { data: group, error } = await supabase
     .from('groups')
@@ -31,22 +33,22 @@ export default async function GroupDetailPage({ params }: { params: Promise<{ id
           <p className="text-lg text-gray-600 mt-4">{group.description}</p>
         </div>
         <Link href={`/groups/${id}/donate`} className="mt-4 sm:mt-0 flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition">
-          Donate & Support
+          {t('donate')}
         </Link>
       </div>
 
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
           <MessageSquare className="h-6 w-6 text-primary" />
-          Debates & Discussions
+          {t('debates')}
         </h2>
         <div className="flex gap-3">
           <Link href={`/groups/${id}/voice`} className="flex items-center gap-2 bg-blue-100 text-primary px-4 py-2 rounded-lg font-bold hover:bg-blue-200 transition">
-            🎤 Voice Chat
+            {t('voice_chat')}
           </Link>
           <Link href={`/groups/${id}/debates/new`} className="flex items-center gap-2 bg-secondary text-white px-4 py-2 rounded-lg font-medium hover:bg-yellow-600 transition">
             <PlusCircle className="h-5 w-5" />
-            Start Debate
+            {t('start_debate')}
           </Link>
         </div>
       </div>
@@ -54,8 +56,8 @@ export default async function GroupDetailPage({ params }: { params: Promise<{ id
       {debates?.length === 0 ? (
         <div className="text-center py-12 bg-white rounded-xl shadow-sm border border-gray-100">
           <MessageSquare className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-gray-900">No debates yet</h3>
-          <p className="text-gray-500 mt-1">Start a discussion by referencing a Bible verse!</p>
+          <h3 className="text-lg font-medium text-gray-900">{t('no_debates')}</h3>
+          <p className="text-gray-500 mt-1">{t('no_debates_desc')}</p>
         </div>
       ) : (
         <div className="space-y-4">

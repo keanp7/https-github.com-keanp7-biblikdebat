@@ -57,5 +57,47 @@
     "cta_title": "Prêt à grandir dans la foi ensemble ?",
     "cta_desc": "Créez un compte aujourd'hui et rejoignez des milliers de croyants qui discutent des Écritures.",
     "cta_button": "Commencer Gratuitement"
+  },
+  "AI": {
+    "title": "Assistant IA Biblik",
+    "desc": "Posez des questions sur la Bible, explorez des sujets et obtenez des idées scripturaires.",
+    "greeting": "Comment puis-je vous aider à comprendre la Bible aujourd'hui?",
+    "q1": "Que signifie Jean 3:16?",
+    "q2": "Expliquez le livre des Romains",
+    "q3": "Créer une étude biblique sur la foi",
+    "placeholder": "Demander à Biblik IA..."
+  },
+  "Groups": {
+    "communities": "Communautés",
+    "communities_desc": "Rejoignez un groupe pour étudier la Bible ensemble.",
+    "create_group": "Créer un groupe",
+    "error": "Erreur de chargement des groupes.",
+    "no_groups": "Aucun groupe trouvé",
+    "no_groups_desc": "Soyez le premier à créer une communauté!",
+    "view_community": "Voir la communauté →",
+    "donate": "Faire un don",
+    "debates": "Débats & Discussions",
+    "voice_chat": "🎤 Chat vocal",
+    "start_debate": "Lancer le débat",
+    "no_debates": "Pas encore de débats",
+    "no_debates_desc": "Commencez une discussion en citant un verset biblique!"
+  },
+  "Debates": {
+    "back": "← Retour à {name}",
+    "discussion": "Discussion",
+    "reply": "Répondre",
+    "post_reply": "Poster la réponse",
+    "cancel": "Annuler",
+    "post_comment": "Poster un commentaire",
+    "write_reply": "Écrire une réponse...",
+    "share_thoughts": "Partagez vos pensées sur ce verset..."
+  },
+  "Voice": {
+    "title": "Chat vocal en direct",
+    "realtime": "Temps réel",
+    "no_messages": "Pas de messages vocaux.",
+    "sending": "Envoi en cours...",
+    "group_chat": "Chat vocal de groupe",
+    "desc": "Maintenez le micro pour envoyer un message vocal à tout le monde dans {name}."
   }
 }

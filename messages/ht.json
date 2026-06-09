@@ -57,5 +57,47 @@
     "cta_title": "Pare pou nou grandi nan lafwa ansanm?",
     "cta_desc": "Kreye yon kont jodi a epi rejwenn plizyè milye kwayan k ap diskite sou Ekriti yo.",
     "cta_button": "Kòmanse Gratis"
+  },
+  "AI": {
+    "title": "Asistan AI Biblik",
+    "desc": "Poze kesyon sou Bib la, eksplore sijè, epi jwenn apèsi sou ekriti yo.",
+    "greeting": "Kijan mwen ka ede w konprann Bib la jodi a?",
+    "q1": "Kisa Jan 3:16 vle di?",
+    "q2": "Eksplike Liv Ròm yo",
+    "q3": "Kreye yon etid biblik sou lafwa",
+    "placeholder": "Mande Biblik AI..."
+  },
+  "Groups": {
+    "communities": "Kominote",
+    "communities_desc": "Antre nan yon gwoup pou etidye Bib la ansanm.",
+    "create_group": "Kreye Gwoup",
+    "error": "Erè chaje gwoup yo. Asire baz done a an plas.",
+    "no_groups": "Pa jwenn okenn gwoup",
+    "no_groups_desc": "Se ou menm ki pou kreye premye kominote a!",
+    "view_community": "Gade Kominote →",
+    "donate": "Bay & Sipòte",
+    "debates": "Deba & Diskisyon",
+    "voice_chat": "🎤 Vwa Chat",
+    "start_debate": "Kòmanse yon Deba",
+    "no_debates": "Pa gen deba poko",
+    "no_debates_desc": "Kòmanse yon diskisyon baze sou yon vèsè Biblik!"
+  },
+  "Debates": {
+    "back": "← Tounen nan {name}",
+    "discussion": "Diskisyon",
+    "reply": "Reponn",
+    "post_reply": "Afiche Repons",
+    "cancel": "Anile",
+    "post_comment": "Afiche Kòmantè",
+    "write_reply": "Ekri yon repons...",
+    "share_thoughts": "Pataje panse ou sou vèsè sa a..."
+  },
+  "Voice": {
+    "title": "Vwa Chat an Dirèk",
+    "realtime": "An Dirèk",
+    "no_messages": "Pa gen mesaj vwa poko. Ou mèt pale an premye!",
+    "sending": "Ap voye...",
+    "group_chat": "Vwa Chat Gwoup la",
+    "desc": "Kenbe mikwo a pou w voye yon mesaj vwa bay tout moun nan {name}."
   }
 }
