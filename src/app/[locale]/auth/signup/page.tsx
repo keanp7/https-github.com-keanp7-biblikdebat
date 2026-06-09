@@ -1,10 +1,10 @@
 import { Link } from '@/i18n/routing';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
-export default function SignupPage() {
-  const t = useTranslations('Auth');
+export default async function SignupPage() {
+  const t = await getTranslations('Auth');
 
   async function handleSignup(formData: FormData) {
     'use server';

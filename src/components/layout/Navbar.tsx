@@ -1,10 +1,10 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import { BookOpen, User, LogIn, ShieldAlert } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 
-export default function Navbar() {
-  const t = useTranslations('Navbar');
+export default async function Navbar() {
+  const t = await getTranslations('Navbar');
 
   return (
     <nav className="bg-primary text-white shadow-md relative z-50">

@@ -1,10 +1,10 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import { BookOpen, Mic, Bot, WifiOff, Users, Heart } from 'lucide-react';
 
-export default function Home() {
-  const tIndex = useTranslations('Index');
-  const tLanding = useTranslations('Landing');
+export default async function Home() {
+  const tIndex = await getTranslations('Index');
+  const tLanding = await getTranslations('Landing');
 
   return (
     <div className="flex flex-col min-h-screen">
