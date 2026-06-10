@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@ai-sdk/google": "^3.0.80",
+    "@ai-sdk/anthropic": "^3.0.82",
     "@ai-sdk/react": "^3.0.200",
     "@ducanh2912/next-pwa": "^10.2.9",
     "@supabase/ssr": "^0.10.3",

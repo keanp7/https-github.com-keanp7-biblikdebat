@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
-import { google } from '@ai-sdk/google';
+import { anthropic } from '@ai-sdk/anthropic';
 import { generateText } from 'ai';
 
 export async function POST(req: Request) {
@@ -35,7 +35,7 @@ export async function POST(req: Request) {
 
   // Ask AI to moderate
   const result = await generateText({
-    model: google('gemini-1.5-pro'),
+    model: anthropic('claude-3-haiku-20240307'),
     system: "You are a content moderator for a Christian community. Given the following user-submitted text, determine if it contains hate speech, extreme profanity, or spam. Respond ONLY with 'Safe', 'Violates community guidelines: [Reason]', or 'Spam'. Do not explain further.",
     prompt: `Text to moderate:\n"${textToModerate}"`
   });
