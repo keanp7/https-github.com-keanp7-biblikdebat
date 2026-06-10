@@ -72,6 +72,14 @@ export default function AIPage() {
     append({ role: 'user', content: prompt });
   };
 
+  const handleQuickQuestion = async (prompt: string) => {
+    if (userId) {
+      await ensureConversation();
+      await supabase.from('ai_messages').insert([{ conversation_id: conversationId, role: 'user', content: prompt }]);
+    }
+    append({ role: 'user', content: prompt });
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-4 sm:py-8 h-[calc(100dvh-5rem)] sm:h-[calc(100vh-10rem)] flex flex-col">
       <div className="text-center mb-4 sm:mb-6">
@@ -98,9 +106,9 @@ export default function AIPage() {
             <Bot className="h-16 w-16 mb-4 opacity-50" />
             <p>{t('greeting')}</p>
             <div className="mt-8 flex flex-wrap gap-4 justify-center max-w-2xl">
-              <button onClick={() => handleInputChange({ target: { value: t('q1') } } as any)} className="bg-gray-50 px-4 py-2 rounded-full text-sm text-gray-700 hover:bg-gray-100 border">{t('q1')}</button>
-              <button onClick={() => handleInputChange({ target: { value: t('q2') } } as any)} className="bg-gray-50 px-4 py-2 rounded-full text-sm text-gray-700 hover:bg-gray-100 border">{t('q2')}</button>
-              <button onClick={() => handleInputChange({ target: { value: t('q3') } } as any)} className="bg-gray-50 px-4 py-2 rounded-full text-sm text-gray-700 hover:bg-gray-100 border">{t('q3')}</button>
+              <button onClick={() => handleQuickQuestion(t('q1'))} className="bg-gray-50 px-4 py-2 rounded-full text-sm text-gray-700 hover:bg-gray-100 border">{t('q1')}</button>
+              <button onClick={() => handleQuickQuestion(t('q2'))} className="bg-gray-50 px-4 py-2 rounded-full text-sm text-gray-700 hover:bg-gray-100 border">{t('q2')}</button>
+              <button onClick={() => handleQuickQuestion(t('q3'))} className="bg-gray-50 px-4 py-2 rounded-full text-sm text-gray-700 hover:bg-gray-100 border">{t('q3')}</button>
             </div>
           </div>
         ) : (
