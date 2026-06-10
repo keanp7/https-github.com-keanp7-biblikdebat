@@ -37,16 +37,16 @@ export default async function GroupDetailPage({ params }: { params: Promise<{ lo
         </Link>
       </div>
 
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
           <MessageSquare className="h-6 w-6 text-primary" />
           {t('debates')}
         </h2>
-        <div className="flex gap-3">
-          <Link href={`/groups/${id}/voice`} className="flex items-center gap-2 bg-blue-100 text-primary px-4 py-2 rounded-lg font-bold hover:bg-blue-200 transition">
+        <div className="flex flex-wrap gap-2 sm:gap-3 w-full sm:w-auto">
+          <Link href={`/groups/${id}/voice`} className="flex-1 sm:flex-none justify-center flex items-center gap-2 bg-blue-100 text-primary px-4 py-2 rounded-lg font-bold hover:bg-blue-200 transition">
             {t('voice_chat')}
           </Link>
-          <Link href={`/groups/${id}/debates/new`} className="flex items-center gap-2 bg-secondary text-white px-4 py-2 rounded-lg font-medium hover:bg-yellow-600 transition">
+          <Link href={`/groups/${id}/debates/new`} className="flex-1 sm:flex-none justify-center flex items-center gap-2 bg-secondary text-white px-4 py-2 rounded-lg font-medium hover:bg-yellow-600 transition">
             <PlusCircle className="h-5 w-5" />
             {t('start_debate')}
           </Link>
